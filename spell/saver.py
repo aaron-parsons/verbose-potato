@@ -12,7 +12,7 @@ args = parser.parse_args()
 
 # make a dataframe
 df = pd.DataFrame(data=np.random.rand(args.size, args.size))
-
+print(f"created_dataframe")
 # output the dataframe
 save_dir = os.path.join(os.getcwd(), args.output_dir)
 
@@ -20,6 +20,7 @@ if not os.path.isdir(save_dir):
     os.makedirs(save_dir)
 
 output_path = os.path.join(save_dir, args.output_fname)
+print(f"Saving out to {output_path}")
 
 with open(output_path, "w") as f:
     df.to_parquet(path=f)
